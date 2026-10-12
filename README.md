@@ -1,6 +1,6 @@
 # Deploy and Host a Claude Code Dev Box on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/claude-code?utm_medium=integration&utm_source=button&utm_campaign=claude-code)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/claude-code?referralCode=sLjDXb&utm_medium=integration&utm_source=button&utm_campaign=claude-code)
 
 This template gives you an always-on Ubuntu 24.04 workstation with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) pre-installed. Open your Railway domain for a terminal in the browser, or SSH in through Railway's TCP proxy. Your home directory lives on a volume, so repos, Claude login, GitHub auth and dotfiles survive every redeploy.
 
