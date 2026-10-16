@@ -251,7 +251,7 @@ RUN mkdir -p /opt/data && chmod 0644 /opt/hermes/tools/facts.json && \
     rm -f /opt/hermes/.venv/.lock /opt/hermes/pm-runtime/.lock
 ENV HERMES_PYTHON=/opt/hermes/.venv/bin/python
 VOLUME [ "/opt/data" ]
-ENTRYPOINT [ "/opt/hermes/docker/entrypoint-dispatch.sh" ]
+
 CMD [ ]
 
 # ---------------------------------------------------------------------------
