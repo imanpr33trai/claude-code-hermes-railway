@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
        > /etc/apt/sources.list.d/github-cli.list \
   && apt-get update && apt-get install -y --no-install-recommends nodejs gh \
   && npm install -g @anthropic-ai/claude-code \
+  && npm install -g --ignore-scripts @earendil-works/pi-coding-agent \
   && curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR=/usr/local/bin sh \
   && mkdir -p /run/sshd \
   && sed -i 's/^worker_processes .*/worker_processes 2;/' /etc/nginx/nginx.conf \
