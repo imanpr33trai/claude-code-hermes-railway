@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# agents — pick claude, pi or hermes and launch it inside tmux, so long runs
+# survive disconnects. From a browser tab you land here after `agents`; from
+# SSH the same command works (it opens a tmux session named after the agent).
+set -eu
+
+echo "
+  Which agent?
+    1) claude  - Claude Code
+    2) pi      - Pi
+    3) hermes  - Hermes TUI
+"
+read -r -p "choice [1-3, enter cancels]: " pick || exit 0
+case "${pick:-}" in
+  1) cmd="claude" ;;
+  2) cmd="pi" ;;
+  3) cmd="hermes" ;;
+  *) echo "cancelled" ;;
+esac
+[ -n "${cmd:-}" ] || exit 0
+
+if [ -n "${TMUX:-}" ]; then
+  exec tmux new-window -n "$cmd" "$cmd"
+elif command -v tmux >/dev/null 2>&1; then
+  exec tmux new -A -s "$cmd" "$cmd"
+else
+  exec "$cmd"
+fi

@@ -33,7 +33,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY skel/ /opt/skel/
 COPY entrypoint.sh /entrypoint.sh
 COPY drop-file-cache /usr/local/bin/drop-file-cache
-RUN chmod +x /entrypoint.sh
+# The agents menu is installed image-wide so existing volumes (whose /root was
+# seeded on first boot) still get menu updates on redeploy.
+COPY skel/agents /usr/local/bin/agents
+RUN chmod +x /entrypoint.sh /usr/local/bin/agents
 
 # ---------------------------------------------------------------------------
 # Hermes (TUI): transplanted from the pinned official image.

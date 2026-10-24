@@ -1,8 +1,11 @@
 
-  Claude Code cloud box
-  ---------------------
-  claude        start Claude Code (first run: /login, or set CLAUDE_CODE_OAUTH_TOKEN / ANTHROPIC_API_KEY)
-  cl            same, inside a detachable tmux session (tmux attach -t claude to resume)
-  gh auth login GitHub CLI
-  ~/            persisted on the volume (repos, auth, dotfiles survive redeploys)
+  Agent box - claude | pi | hermes
+  --------------------------------
+  agents        pick an agent, launch it inside tmux (survives disconnects)
+  claude pi hermes
+                run one directly (first claude run: /login or CLAUDE_CODE_OAUTH_TOKEN)
+  cl            claude inside tmux session 'claude' (resume: tmux attach -t claude)
+  gh auth login Authenticate GitHub CLI for pushes/PRs
+  ~/            persisted on the volume: repos, auth and dotfiles survive redeploys
+
 

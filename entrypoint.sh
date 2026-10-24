@@ -33,7 +33,8 @@ CFG
 /usr/sbin/sshd
 
 # Make service variables visible to SSH sessions too (sshd strips the environment).
-env | grep -E '^(ANTHROPIC_|CLAUDE_|GH_TOKEN|GITHUB_TOKEN|TZ|PORT)' | sed 's/^/export /; s/=/="/; s/$/"/' > /etc/profile.d/railway-env.sh || true
+# Covers the provider keys claude/pi/hermes all read from the environment.
+env | grep -E '^(ANTHROPIC_|CLAUDE_|GH_TOKEN|GITHUB_TOKEN|TZ|PORT|OPENAI_API_KEY|OPENROUTER_API_KEY|GEMINI_API_KEY|GOOGLE_API_KEY|XAI_API_KEY|DEEPSEEK_API_KEY|DASHSCOPE_API_KEY|KIMI_|GLM_API_KEY|ZAI_API_KEY|HF_TOKEN|MISTRAL_API_KEY|GROQ_API_KEY|TOGETHER_API_KEY|CEREBRAS_API_KEY|MINIMAX_API_KEY|OPENCODE_ZEN_API_KEY)' | sed 's/^/export /; s/=/="/; s/$/"/' > /etc/profile.d/railway-env.sh || true
 
 # nginx on $PORT: unauthenticated /healthcheck for Railway, everything else to ttyd.
 cat > /etc/nginx/sites-enabled/default <<CFG
